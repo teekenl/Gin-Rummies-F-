@@ -1,0 +1,14 @@
+C:\Users\Ken\Desktop\GinRummySkeleton\bin\GinRummy.exe.config
+C:\Users\Ken\Desktop\GinRummySkeleton\bin\GinRummy.exe
+C:\Users\Ken\Desktop\GinRummySkeleton\bin\GinRummy.pdb
+C:\Users\Ken\Desktop\GinRummySkeleton\GinRummyApp\obj\Debug\GinRummyApp.csprojResolveAssemblyReference.cache
+C:\Users\Ken\Desktop\GinRummySkeleton\GinRummyApp\obj\Debug\App.g.cs
+C:\Users\Ken\Desktop\GinRummySkeleton\GinRummyApp\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\Ken\Desktop\GinRummySkeleton\GinRummyApp\obj\Debug\GinRummy_MarkupCompile.cache
+C:\Users\Ken\Desktop\GinRummySkeleton\GinRummyApp\obj\Debug\GinRummy_MarkupCompile.lref
+C:\Users\Ken\Desktop\GinRummySkeleton\GinRummyApp\obj\Debug\Views\View.baml
+C:\Users\Ken\Desktop\GinRummySkeleton\GinRummyApp\obj\Debug\GinRummy.g.resources
+C:\Users\Ken\Desktop\GinRummySkeleton\GinRummyApp\obj\Debug\QUT.Properties.Resources.resources
+C:\Users\Ken\Desktop\GinRummySkeleton\GinRummyApp\obj\Debug\GinRummyApp.csproj.GenerateResource.Cache
+C:\Users\Ken\Desktop\GinRummySkeleton\GinRummyApp\obj\Debug\GinRummy.exe
+C:\Users\Ken\Desktop\GinRummySkeleton\GinRummyApp\obj\Debug\GinRummy.pdb

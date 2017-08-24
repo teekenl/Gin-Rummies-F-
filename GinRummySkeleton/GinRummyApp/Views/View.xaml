@@ -1,0 +1,143 @@
+﻿<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:prism="http://prismlibrary.com/"
+        xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+        xmlns:local="clr-namespace:QUT"
+        Title="Gin Rummy" Height="800" Width="1200">
+    <Window.Resources>
+        <local:ViewModel x:Key="ViewModel"/>
+        <local:HiddenCardConverter x:Key="HiddenCardConverter"/>
+        <local:VisibleCardConverter x:Key="VisibleCardConverter"/>
+        <local:DeckPanel x:Key="DeckPanel"/>
+    </Window.Resources>
+    <Window.DataContext>
+        <StaticResource ResourceKey="ViewModel"/>
+    </Window.DataContext>
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="../Resources/green.jpg" TileMode="Tile"  ViewportUnits="Absolute" Viewport="0,0,507,338"/>
+        </Grid.Background>        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <i:Interaction.Triggers>
+            <prism:InteractionRequestTrigger SourceObject="{Binding NotificationRequest, Mode=OneWay}">  
+                <prism:PopupWindowAction CenterOverAssociatedObject="True" IsModal="True" />  
+            </prism:InteractionRequestTrigger>  
+        </i:Interaction.Triggers>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"  Grid.Row="0" >
+        </StackPanel>
+
+        <ItemsControl ItemsSource="{Binding Path=ComputerCards}" Grid.Row="1">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Image Width="80" Margin="5" >
+                        <Image.Source>
+                            <Binding Converter="{StaticResource HiddenCardConverter}"/>
+                        </Image.Source>
+                    </Image>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Horizontal"/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+        </ItemsControl>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"  Grid.Row="2" >
+            <Button Command="{Binding ContinueCommand}" Content="Continue" Width="100" FontSize="20" Height="100" Margin="10,10,50,10"/>
+            <Button Command="{Binding KnockCommand}" Content="Knock" Width="100" FontSize="20" Height="100" Margin="10,10,50,10"/>
+            <Button Command="{Binding GinCommand}" Content="Gin" Width="100" FontSize="20" Height="100" Margin="10,10,50,10"/>
+            <ItemsControl ItemsSource="{Binding Path=Discards}" >
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Image Width="80">
+                            <Image.Source>
+                                <Binding Converter="{StaticResource VisibleCardConverter}"/>
+                            </Image.Source>
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="MouseDown">
+                                    <i:InvokeCommandAction Command="{Binding Source={StaticResource ViewModel}, Path=TakeCardFromDiscardPileCommand}" CommandParameter="{Binding}"/>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                        </Image>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <local:DeckPanel/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+            </ItemsControl>
+        
+            <ItemsControl ItemsSource="{Binding Path=RemainingDeck}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Image Width="80">
+                            <Image.Source>
+                                <Binding Converter="{StaticResource HiddenCardConverter}"/>
+                            </Image.Source>
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="MouseDown">
+                                    <i:InvokeCommandAction Command="{Binding Source={StaticResource ViewModel}, Path=TakeCardFromDeckCommand}" CommandParameter="{Binding}"/>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                        </Image>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <local:DeckPanel/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+            </ItemsControl>
+        </StackPanel>
+
+
+        <ItemsControl ItemsSource="{Binding Path=HumanCards}"  Grid.Row="3">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Image Width="80" Margin="5">
+                        <Image.Source>
+                            <Binding Converter="{StaticResource VisibleCardConverter}"/>
+                        </Image.Source>
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="MouseDown">
+                                <i:InvokeCommandAction Command="{Binding Source={StaticResource ViewModel}, Path=DiscardCardFromHandCommand}" CommandParameter="{Binding}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </Image>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Horizontal"/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+        </ItemsControl>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"  Grid.Row="4" >
+            <Label Foreground="White" FontSize="20" HorizontalAlignment="Center"  Content="{Binding HumanDeadwood}"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"  Grid.Row="1">
+            <Label Foreground="White" FontSize="20" HorizontalAlignment="Center" Content="{Binding ScoreToWin}"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal"  HorizontalAlignment="Left"  Grid.Row="4">
+            <Label Foreground="White" FontSize="20" HorizontalAlignment="Center"  Margin="0,5,40,0" Content="{Binding PlayerScore}"/>
+
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left"  Grid.Row="1">
+            <Label Foreground="White" FontSize="20" HorizontalAlignment="Center"  Margin="0,5,40,0" Content="{Binding ComputerScore}"/>
+        </StackPanel>
+    </Grid>
+</Window>

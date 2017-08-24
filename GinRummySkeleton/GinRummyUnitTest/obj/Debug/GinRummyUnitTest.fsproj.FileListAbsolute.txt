@@ -1,0 +1,15 @@
+C:\Users\Ken\Desktop\GinRummySkeleton\GinRummyUnitTest\bin\Debug\GinRummyUnitTest.dll.config
+C:\Users\Ken\Desktop\GinRummySkeleton\GinRummyUnitTest\bin\Debug\GinRummyUnitTest.XML
+C:\Users\Ken\Desktop\GinRummySkeleton\GinRummyUnitTest\bin\Debug\GinRummyUnitTest.dll
+C:\Users\Ken\Desktop\GinRummySkeleton\GinRummyUnitTest\bin\Debug\GinRummyUnitTest.pdb
+C:\Users\Ken\Desktop\GinRummySkeleton\GinRummyUnitTest\bin\Debug\FSharp.Core.dll
+C:\Users\Ken\Desktop\GinRummySkeleton\GinRummyUnitTest\bin\Debug\GinRummyLibrary.dll
+C:\Users\Ken\Desktop\GinRummySkeleton\GinRummyUnitTest\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Users\Ken\Desktop\GinRummySkeleton\GinRummyUnitTest\bin\Debug\GinRummyLibrary.pdb
+C:\Users\Ken\Desktop\GinRummySkeleton\GinRummyUnitTest\bin\Debug\GinRummyLibrary.xml
+C:\Users\Ken\Desktop\GinRummySkeleton\GinRummyUnitTest\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.xml
+C:\Users\Ken\Desktop\GinRummySkeleton\GinRummyUnitTest\bin\Debug\FSharp.Core.xml
+C:\Users\Ken\Desktop\GinRummySkeleton\GinRummyUnitTest\obj\Debug\GinRummyUnitTest.fsprojResolveAssemblyReference.cache
+C:\Users\Ken\Desktop\GinRummySkeleton\GinRummyUnitTest\obj\Debug\GinRummyUnitTest.fsproj.GinRummyUnitTest.dll.config
+C:\Users\Ken\Desktop\GinRummySkeleton\GinRummyUnitTest\obj\Debug\GinRummyUnitTest.dll
+C:\Users\Ken\Desktop\GinRummySkeleton\GinRummyUnitTest\obj\Debug\GinRummyUnitTest.pdb
